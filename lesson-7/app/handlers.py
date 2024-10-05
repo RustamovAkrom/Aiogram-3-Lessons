@@ -20,8 +20,10 @@ class Reg(StatesGroup):
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.reply(f"Salom. Sening ID raqaming: {message.from_user.id},\n{message.from_user.first_name}",
-                        reply_markup=kb.main)
+    await message.reply(
+        f"Salom. Sening ID raqaming: {message.from_user.id},\n{message.from_user.first_name}",
+        reply_markup=kb.main,
+    )
 
 
 @router.message(Command("help"))
@@ -41,16 +43,16 @@ async def get_photo(message: Message):
 
 @router.message(Command("get_photo"))
 async def get_photo(message: Message):
-    await message.answer_photo(photo="AgACAgIAAxkBAAMVZwFipPaKYKnpSEEaebRDd2mw18QAAgLlMRtb_AhIYW7xms0tVS8BAAMCAAN5AAM2BA",
-                               caption="It is your photo")
-    
+    await message.answer_photo(
+        photo="AgACAgIAAxkBAAMVZwFipPaKYKnpSEEaebRDd2mw18QAAgLlMRtb_AhIYW7xms0tVS8BAAMCAAN5AAM2BA",
+        caption="It is your photo",
+    )
 
-@router.callback_query(F.data == 'catalog')
+
+@router.callback_query(F.data == "catalog")
 async def catalog(callback: CallbackQuery):
     await callback.answer("Your selected catalog.", show_alert=True)
     await callback.message.edit_text("Salom!", reply_markup=await kb.inline_cars())
-
-
 
 
 @router.message(Command("register"))

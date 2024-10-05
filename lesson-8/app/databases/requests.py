@@ -20,4 +20,3 @@ async def get_categories():
 async def get_category_item(category_id):
     async with async_session() as session:
         return await session.scalars(select(Item).where(Item.category == category_id))
-    

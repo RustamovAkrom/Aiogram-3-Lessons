@@ -30,8 +30,10 @@ async def catalog(message: Message):
     await message.answer("Categorini tanlang:", reply_markup=await kb.categories())
 
 
-@router.callback_query(F.data.startswith('category_'))
+@router.callback_query(F.data.startswith("category_"))
 async def category(callback: CallbackQuery):
     await callback.answer("Siz kategoriyani tanladingiz!")
-    await callback.message.answer("Katalogdagi tovarni tanlang", 
-                                  reply_markup=await kb.items(callback.data.split("_")[1]))
+    await callback.message.answer(
+        "Katalogdagi tovarni tanlang",
+        reply_markup=await kb.items(callback.data.split("_")[1]),
+    )

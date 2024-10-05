@@ -1,23 +1,25 @@
 from aiogram.types import (
-    ReplyKeyboardMarkup, 
+    ReplyKeyboardMarkup,
     KeyboardButton,
     InlineKeyboardButton,
-    InlineKeyboardMarkup
+    InlineKeyboardMarkup,
 )
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 
 
-main = ReplyKeyboardMarkup(keyboard=[
-    [KeyboardButton(text="Katalog")],
-    [KeyboardButton(text="Korzinga"), KeyboardButton(text="Contacts")],
-], 
-resize_keyboard=True, 
-input_field_placeholder="Select my punkt.")
+main = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text="Katalog")],
+        [KeyboardButton(text="Korzinga"), KeyboardButton(text="Contacts")],
+    ],
+    resize_keyboard=True,
+    input_field_placeholder="Select my punkt.",
+)
 
 
-settings = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text="YouTube", url="https://youtube.com/")]
-])
+settings = InlineKeyboardMarkup(
+    inline_keyboard=[[InlineKeyboardButton(text="YouTube", url="https://youtube.com/")]]
+)
 
 cars = ["Tesla", "Mercades", "MBW"]
 
